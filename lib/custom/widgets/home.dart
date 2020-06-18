@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:juliapp/custom/widgets/HorizontalList.dart';
 import 'package:juliapp/custom/widgets/LogoAppBar.dart';
+import 'package:juliapp/custom/widgets/VerticalList.dart';
 import 'package:juliapp/custom/widgets/fundation/data.dart';
 
 class Home extends StatelessWidget {
@@ -15,22 +16,16 @@ class Home extends StatelessWidget {
         ),
         body: Column(
           children: [
-            HorizontalList(),
+            Expanded( child: HorizontalList(),),
             Text(obj['title'],
                 style: TextStyle(
-                    color: Colors.deepPurple,
-                    fontSize: 20,
+                  color: Colors.deepPurple,
                     fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w500)),
-            Padding(
-                padding: EdgeInsets.all(10),
-                child: Text(obj['description'],
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w300)))
+                    fontWeight: FontWeight.w600,
+                    fontSize: 24)),
+           Expanded( child: VerticalList())
           ],
-        ));
+        )
+    );
   }
 }

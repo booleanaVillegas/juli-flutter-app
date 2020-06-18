@@ -10,27 +10,25 @@ class HorizontalListElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 250,
-        width: 135,
-        padding: EdgeInsets.all(10.0),
+      padding: EdgeInsets.symmetric(vertical: 15),
+        width: 145,
         child: Column(children: [
           Image.asset(
             this.pathImage,
             fit: BoxFit.cover,
-            height: 180,
+            height: 200,
+
           ),
-          Container(
-              height: 50,
-              child: Center(
-                  heightFactor: 1,
-                  child: Text(
+          Expanded(child: Text(
                     this.title,
                     style: TextStyle(
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w600,
-                        fontSize: 16),
+                        fontSize: 16,
+
+                    ),
                     textAlign: TextAlign.center,
-                  )))
+                  ))
         ]));
   }
 }

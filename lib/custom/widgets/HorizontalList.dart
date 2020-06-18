@@ -5,12 +5,7 @@ import 'fundation/data.dart';
 class HorizontalList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-
-        height: 270,
-        child: Padding(
-            padding: EdgeInsets.all(10),
-            child: ListView(
+    return ListView(
               scrollDirection: Axis.horizontal,
               children: [
                 for (final item in jsonData)
@@ -18,6 +13,6 @@ class HorizontalList extends StatelessWidget {
                       title: item['title'],
                       pathImage: ("assets/" + item['photo']))
               ],
-            )));
+            );
   }
 }
