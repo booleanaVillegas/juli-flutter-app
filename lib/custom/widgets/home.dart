@@ -4,9 +4,21 @@ import 'package:juliapp/custom/widgets/LogoAppBar.dart';
 import 'package:juliapp/custom/widgets/VerticalList.dart';
 import 'package:juliapp/custom/widgets/fundation/data.dart';
 
-class Home extends StatelessWidget {
-  final List<Map<String, Object>> objects = jsonData;
-  final Map<String, Object> obj = jsonData[0];
+class Home extends StatefulWidget{
+  @override
+  _Home createState()=> _Home();
+
+}
+
+class _Home extends State<Home> {
+  List<Map<String, Object>> _horizontalList = jsonData;
+  Map<String, Object> _selectedItem = jsonData[0];
+
+  void _selectNewItem(Object item){
+    setState(() {
+      _selectedItem=item;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +28,18 @@ class Home extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Expanded( child: HorizontalList(),),
-            Text(obj['title'],
+            Container(
+              height: 280,
+              child: HorizontalList(notifyParent: _selectNewItem,),),
+            Text(_selectedItem['title'],
                 style: TextStyle(
                   color: Colors.deepPurple,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w600,
                     fontSize: 24)),
-           Expanded( child: VerticalList())
+           Expanded( child: VerticalList(
+             obj: _selectedItem
+           ))
           ],
         )
     );

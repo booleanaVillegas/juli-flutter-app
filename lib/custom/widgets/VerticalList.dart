@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 
 class VerticalList extends StatelessWidget {
 
-  final List<Map<String, Object>> objects = jsonData;
-  final Map<String, Object> obj = jsonData[0];
+
+  final Map<String, Object> obj;
+
+  VerticalList({Key key, this.obj}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
